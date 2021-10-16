@@ -1,0 +1,22 @@
+.Button {
+  font-weight: 700;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  font-size: 10px;
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.Button:hover {
+  opacity: 0.8;
+}
+
+.Blue {
+  background-color: #006aff;
+}
+
+.Red {
+  background-color: #ff6774;
+}

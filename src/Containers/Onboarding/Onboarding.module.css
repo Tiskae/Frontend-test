@@ -1,0 +1,12 @@
+.Onboarding {
+  height: 100%;
+  display: grid;
+  align-items: start;
+  grid-template-rows: min-content 1fr;
+  gap: 2rem;
+}
+
+.BtnRow {
+  display: flex;
+  justify-content: flex-end;
+}

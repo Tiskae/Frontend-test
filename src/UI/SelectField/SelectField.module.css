@@ -1,0 +1,53 @@
+.SelectField {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.SelectContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.Select {
+  position: relative;
+  /* background-color: #f5f6fa;
+  border: 1px solid rgba(20, 23, 55, 0.1); */
+  padding: 0.3rem 0.8rem;
+}
+
+.Select label {
+  color: #141737;
+  font-size: 0.6rem;
+  font-weight: 500;
+}
+
+.Select input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: -0.3rem;
+  top: -0.2rem;
+  /* appearance: none; */
+  cursor: pointer;
+  appearance: none;
+}
+
+.Select input::before {
+  content: "";
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+  /* background-color: violet; */
+  background-color: #f5f6fa;
+  border: 1px solid rgba(20, 23, 55, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.1s;
+}
+
+.Select input:checked::before {
+  background-color: #dceaff;
+  border-color: #006aff;
+}

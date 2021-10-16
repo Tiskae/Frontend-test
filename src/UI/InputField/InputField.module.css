@@ -1,0 +1,11 @@
+.InputField {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.InputField input {
+  border: 1px solid #e4e9ef;
+  color: #141737;
+  border-radius: 5px;
+  padding: 0.6rem;
+}

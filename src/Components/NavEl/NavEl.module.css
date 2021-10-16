@@ -1,0 +1,46 @@
+.NavEl {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.Number {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e4e9ef;
+  color: #a5b4cb;
+}
+
+.Title {
+  color: #a5b4cb;
+}
+
+.NavEl.Active .Number {
+  background-color: #006aff;
+  color: white;
+}
+.NavEl.Active .Title {
+  color: #141737;
+}
+
+.NavEl.Completed .Number {
+  background-color: #dceaff;
+  color: #e4e9ef;
+  position: relative;
+}
+
+.NavEl.Completed .Number::before {
+  content: url("../../assets/images/icon-checkmark.png");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

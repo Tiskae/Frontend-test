@@ -1,0 +1,27 @@
+.Layout {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 100vh;
+  overflow: hidden;
+}
+
+.Hero {
+  /* background-image: url("../../assets/images/hero.png");
+   */
+  background-color: #f3e8c9;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+}
+
+.HeroImage {
+  width: 85%;
+  transform: translateY(3rem);
+}
+
+.Content {
+  padding: 2rem 3rem;
+  text-align: start;
+}

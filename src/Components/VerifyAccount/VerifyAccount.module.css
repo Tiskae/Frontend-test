@@ -1,0 +1,14 @@
+.VerifyAccount {
+  display: grid;
+  gap: 1rem;
+}
+
+.SelectField {
+  margin-bottom: 1rem;
+}
+
+.BtnField {
+  margin-top: 0.4rem;
+  display: flex;
+  justify-content: flex-end;
+}
