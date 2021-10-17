@@ -9,6 +9,8 @@ const InputField = (props) => {
         type={props.type}
         maxLength={props.maxLength ? props.maxLength : null}
         onChange={props.changed}
+        required={props.required ? true : false}
+        placeholder={props.placeholder ? props.placeholder : null}
       />
     </div>
   );

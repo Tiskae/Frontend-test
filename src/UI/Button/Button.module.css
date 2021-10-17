@@ -20,3 +20,9 @@
 .Red {
   background-color: #ff6774;
 }
+
+.Button:disabled {
+  background-color: rgb(238, 238, 238);
+  color: grey;
+  cursor: not-allowed;
+}

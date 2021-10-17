@@ -7,7 +7,7 @@ import Button from "../../UI/Button/Button";
 
 const VerifyAccount = (props) => {
   const [state, setState] = useState({
-    verificationMethod: "bvn",
+    verificationMethod: "",
     bvn: null,
     accountNumber: null,
     bank: null,
@@ -17,6 +17,33 @@ const VerifyAccount = (props) => {
     setState({ ...state, verificationMethod: value });
     console.log(value);
   };
+
+  const BVN = (
+    <>
+      <div className={classes.InputField}>
+        <InputField
+          label="Bank Verification Number (11-digits)"
+          type="number"
+          maxLength="11"
+          changed={null}
+        />
+      </div>
+
+      <BVNReason />
+    </>
+  );
+
+  const PAN = (
+    <div className={classes.TwoColumn}>
+      <InputField
+        label="Account Number"
+        type="number"
+        maxLength="10"
+        changed={null}
+      />
+      <InputField label="Select Bank" type="text" changed={null} />
+    </div>
+  );
 
   return (
     <div className={classes.VerifyAccount}>
@@ -32,19 +59,22 @@ const VerifyAccount = (props) => {
         />
       </div>
 
-      <div className={classes.InputField}>
-        <InputField
-          label="Bank Verification Number (11-digits)"
-          type="number"
-          maxLength="11"
-          changed={null}
-        />
-      </div>
+      {state.verificationMethod === "bvn" && state.verificationMethod !== ""
+        ? BVN
+        : null}
 
-      <BVNReason />
-      <hr />
+      {state.verificationMethod === "pan" && state.verificationMethod !== ""
+        ? PAN
+        : null}
+
       <div className={classes.BtnField}>
-        <Button btnType="blue">Continue</Button>
+        <Button
+          btnType="blue"
+          disabled={state.verificationMethod === "" ? true : false}
+          clicked={props.next}
+        >
+          Continue
+        </Button>
       </div>
     </div>
   );

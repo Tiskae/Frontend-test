@@ -44,3 +44,17 @@
   top: 0;
   left: 0;
 }
+
+@media only screen and (max-width: 35em) {
+  .NavEl {
+    display: none;
+  }
+
+  .NavEl.Active {
+    display: block;
+  }
+
+  .Title {
+    display: none;
+  }
+}

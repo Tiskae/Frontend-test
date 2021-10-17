@@ -8,4 +8,21 @@
   color: #141737;
   border-radius: 5px;
   padding: 0.6rem;
+  /* position: relative; */
 }
+
+.InputField input::placeholder {
+  font-size: 0.6rem;
+  color: #7d8da7;
+}
+
+/* .InputField input::before {
+  content: "@";
+  position: absolute;
+  color: #7d8da7;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 2rem;
+  background-color: red;
+} */

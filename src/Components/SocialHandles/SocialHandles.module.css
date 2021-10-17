@@ -1,0 +1,65 @@
+.SocialHandles {
+  display: grid;
+  gap: 3rem;
+}
+
+.Heading {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.Heading h2 {
+  line-height: 1;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-top: 0.6rem;
+}
+
+.Heading p {
+  color: #7d8da7;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.SocialHandles form {
+  display: grid;
+  gap: 2.2rem;
+}
+
+.FormFields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 4rem;
+}
+
+.Input {
+  position: relative;
+  display: grid;
+  align-items: flex-end;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.Input:first-of-type {
+  grid-column: 1 / span 2;
+  width: calc(50% - 32px);
+}
+
+@media only screen and (max-width: 35em) {
+  .FormFields {
+    grid-template-columns: 1fr;
+  }
+
+  .Input:first-of-type {
+    grid-column: 1 / span 1;
+    width: 100%;
+  }
+}
+
+.BtnField {
+  display: grid;
+  justify-items: end;
+  border-top: 1px solid #e9eef4;
+
+  padding-top: 0.7rem;
+}

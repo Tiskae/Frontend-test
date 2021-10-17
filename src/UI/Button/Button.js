@@ -9,7 +9,11 @@ const Button = (props) => {
   } else if (props.btnType === "red") {
     btnClasses.push(classes.Red);
   }
-  return <button className={btnClasses.join(" ")}>{props.children}</button>;
+  return (
+    <button className={btnClasses.join(" ")} disabled={props.disabled} onClick={props.clicked}>
+      {props.children}
+    </button>
+  );
 };
 
 export default Button;
