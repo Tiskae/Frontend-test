@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as classes from "./BVNReason.module.css";
 import iconLock from "../../../assets/images/icon-lock.png";
+import iconPadlock from "../../../assets/images/icon-padlock.png";
 import iconArrowUp from "../../../assets/images/icon-arrow-up.png";
 
 const BVNReason = (props) => {
@@ -29,10 +30,12 @@ const BVNReason = (props) => {
           <hr />
           <p className={classes.Note}>
             <span>
-              <img alt="" src="" />
+              <img alt="" src={iconPadlock} />
             </span>
-            Your BVN does not give us access to your bank accounts or
-            transactions
+            <span>
+              Your BVN does not give us access to your bank accounts or
+              transactions
+            </span>
           </p>
         </div>
       ) : null}

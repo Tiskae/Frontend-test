@@ -7,10 +7,11 @@ const InputField = (props) => {
       <label>{props.label}</label>
       <input
         type={props.type}
-        maxLength={props.maxLength ? props.maxLength : null}
+        maxLength={props.maxLength ? props.maxLength : 524288}
         onChange={props.changed}
         required={props.required ? true : false}
         placeholder={props.placeholder ? props.placeholder : null}
+        value={props.value}
       />
     </div>
   );

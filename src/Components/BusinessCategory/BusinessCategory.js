@@ -1,61 +1,96 @@
 import React, { useState } from "react";
 import Button from "../../UI/Button/Button";
-import InputField from "../../UI/InputField/InputField";
+import Dropdown from "../../UI/Dropdown/Dropdown";
 import SelectField from "../../UI/SelectField/SelectField";
 import * as classes from "./BusinessCategory.module.css";
+import * as helper from "../../Helper";
 
 const BusinessCategory = (props) => {
   const [state, setState] = useState({
-    formData: {
-      business: [
-        {
-          label: "Type of business",
-          type: "text",
-          changed: null,
-          required: false,
-        },
-        {
-          label: "Business Category",
-          type: "text",
-          changed: null,
-        },
-      ],
-      POS: {
-        title: "Do you use POS machines for your business?",
-        options: [
-          { label: "Yes", value: "yes" },
-          { label: "No", value: "no" },
-        ],
-      },
-    },
+    businessType: "",
+    businessCategory: "",
+    usePOSMachine: "",
   });
+
+  const businessTypeChangedHandler = (event) => {
+    const val = event.target.value;
+    setState({ ...state, businessType: val });
+  };
+
+  const businessCategoryChangedHandler = (event) => {
+    const val = event.target.value;
+    setState({ ...state, businessCategory: val });
+  };
+
+  const usePOSMachineChangedHandler = (val) => {
+    setState({ ...state, usePOSMachine: val });
+  };
+
+  const formData = {
+    business: [
+      {
+        label: "Type of business",
+        default: "",
+        options: helper.allBusinessTypes,
+        value: state.businessType,
+        changed: businessTypeChangedHandler,
+      },
+      {
+        label: "Business Category",
+        default: "",
+        options: helper.allBusinessCategories,
+        value: state.businessCategory,
+        changed: businessCategoryChangedHandler,
+      },
+    ],
+    POS: {
+      title: "Do you use POS machines for your business?",
+      options: [
+        { label: "Yes", value: "yes" },
+        { label: "No", value: "no" },
+      ],
+      changed: usePOSMachineChangedHandler,
+    },
+  };
 
   return (
     <div className={classes.BusinessCategory}>
-      <h3>Business Category</h3>
+      <h2>Business Category</h2>
 
       <form>
         <div className={classes.TwoColumn}>
-          {state.formData.business.map((el, i) => (
+          {formData.business.map((el, i) => (
             <div key={i}>
-              <InputField
+              <Dropdown
                 label={el.label}
-                type={el.type}
-                changed={props.changed}
+                default={el.default}
+                options={el.options}
+                // value={el.value}
+                changed={el.changed}
               />
             </div>
           ))}
         </div>
 
         <SelectField
-          title={state.formData.POS.title}
-          options={state.formData.POS.options}
-          changed={null}
+          title={formData.POS.title}
+          options={formData.POS.options}
+          changed={formData.POS.changed}
         />
       </form>
 
       <div className={classes.BtnField}>
-        <Button btnType="blue" clicked={props.submit}>
+        <Button
+          btnType="blue"
+          clicked={props.submit}
+          disabled={
+            !(
+              state.businessType &&
+              state.businessCategory &&
+              state.usePOSMachine
+            )
+          }
+        >
           Complete
         </Button>
       </div>

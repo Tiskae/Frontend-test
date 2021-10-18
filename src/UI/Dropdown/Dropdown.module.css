@@ -1,0 +1,30 @@
+.Dropdown {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.SelectField {
+  position: relative;
+}
+
+.Dropdown select {
+  width: 100%;
+  appearance: none;
+  border: 1px solid #e4e9ef;
+  color: #141737;
+  border-radius: 5px;
+  padding: 0.6rem;
+}
+
+.SelectField::after {
+  content: url("../../assets/images/icon-dropdown.png");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 2px;
+  z-index: 22;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}

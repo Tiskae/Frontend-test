@@ -4,18 +4,37 @@ import InputField from "../../UI/InputField/InputField";
 import * as classes from "./VerifyAccount.module.css";
 import BVNReason from "./BVNReason/BVNReason";
 import Button from "../../UI/Button/Button";
+import Dropdown from "../../UI/Dropdown/Dropdown";
+import * as helper from "../../Helper";
 
 const VerifyAccount = (props) => {
   const [state, setState] = useState({
     verificationMethod: "",
-    bvn: null,
-    accountNumber: null,
-    bank: null,
+    bvn: "",
+    accountNumber: "",
+    bank: "",
   });
 
   const verificationMethodChanged = (value) => {
     setState({ ...state, verificationMethod: value });
-    console.log(value);
+  };
+
+  const BVNChangedHandler = (event) => {
+    const val = event.target.value.trim();
+    if (val.length === 12) return;
+    setState({ ...state, bvn: val });
+  };
+
+  const accountNoChangedHandler = (event) => {
+    const val = event.target.value.trim();
+    if (!val) return;
+    setState({ ...state, accountNumber: val });
+  };
+
+  const bankChangedHandler = (event) => {
+    const val = event.target.value.trim();
+    if (!val) return;
+    setState({ ...state, bank: val });
   };
 
   const BVN = (
@@ -25,7 +44,8 @@ const VerifyAccount = (props) => {
           label="Bank Verification Number (11-digits)"
           type="number"
           maxLength="11"
-          changed={null}
+          changed={BVNChangedHandler}
+          value={state.bvn}
         />
       </div>
 
@@ -39,9 +59,16 @@ const VerifyAccount = (props) => {
         label="Account Number"
         type="number"
         maxLength="10"
-        changed={null}
+        changed={accountNoChangedHandler}
+        value={state.accountNumber}
       />
-      <InputField label="Select Bank" type="text" changed={null} />
+      <Dropdown
+        label="Select Bank"
+        default=""
+        options={helper.allBanksInNigeria}
+        changed={bankChangedHandler}
+        value={state.bank}
+      />
     </div>
   );
 
@@ -70,7 +97,9 @@ const VerifyAccount = (props) => {
       <div className={classes.BtnField}>
         <Button
           btnType="blue"
-          disabled={state.verificationMethod === "" ? true : false}
+          disabled={
+            !(state.bvn.length === 11 || (state.accountNumber && state.bank))
+          }
           clicked={props.next}
         >
           Continue

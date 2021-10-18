@@ -19,7 +19,6 @@ const Content = (props) => {
     });
 
   const submit = () => {
-    console.log("Submitted!!!!!");
     setState({ ...state, isCompleted: true });
   };
 
